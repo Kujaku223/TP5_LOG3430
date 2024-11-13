@@ -24,8 +24,10 @@ jobs:
           
 
       - name: Start Flask server
+        env:
+          FLASK_APP: server.py
         run: |
-          flask run server.py &
+          flask run &
           echo "Waiting for Flask server to start"
           sleep 30
       - name: Run Locust Tests
